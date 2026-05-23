@@ -87,6 +87,30 @@ Steps
 
    For building packages or other ROS development work, install ``ros-dev-tools``:
 
+   .. warning::
+
+      On fresh or minimal Ubuntu 24.04 (Noble) installs (common on servers and ARM devices such as Raspberry Pi),
+      your apt sources may only include the base ``noble`` suite.
+      This can cause dependency conflicts when installing ``ros-dev-tools``.
+
+      Check ``/etc/apt/sources.list.d/ubuntu.sources`` and ensure the ``Suites:`` line includes ``noble-updates`` and ``noble-backports``:
+
+      .. code-block:: console
+
+         $ grep Suites /etc/apt/sources.list.d/ubuntu.sources
+
+      If ``noble-updates`` or ``noble-backports`` are missing, edit the file and update the line to:
+
+      .. code-block:: text
+
+         Suites: noble noble-updates noble-backports
+
+      Then run:
+
+      .. code-block:: console
+
+         $ sudo apt clean && sudo apt update && sudo apt full-upgrade -y
+
    .. code-block:: console
 
       $ sudo apt update && sudo apt install ros-dev-tools
