@@ -89,8 +89,7 @@ Steps
 
    .. warning::
 
-      On fresh or minimal Ubuntu 24.04 (Noble) installs (common on servers and ARM devices such as Raspberry Pi),
-      your apt sources may only include the base ``noble`` suite.
+      On fresh or minimal Ubuntu 24.04 installs your apt sources may only include the base ``noble`` suite.
       This can cause dependency conflicts when installing ``ros-dev-tools``.
 
       Check ``/etc/apt/sources.list.d/ubuntu.sources`` and ensure the ``Suites:`` line includes ``noble-updates`` and ``noble-backports``:
@@ -99,7 +98,7 @@ Steps
 
          $ grep Suites /etc/apt/sources.list.d/ubuntu.sources
 
-      If ``noble-updates`` or ``noble-backports`` are missing, edit the file and update the line to:
+      If ``noble-updates`` or ``noble-backports`` are missing then edit the file and update the line to:
 
       .. code-block:: text
 
